@@ -4,18 +4,45 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"net"
 	"net/http"
+	"os"
+	"path"
+	"path/filepath"
+	"rest-api-service/internal/config"
 	"rest-api-service/internal/user"
 	"rest-api-service/pkg/logging"
 	"time"
 )
 
-func start(router *httprouter.Router, logger *logging.Logger) {
+func start(router *httprouter.Router, logger *logging.Logger, cfg *config.Config) {
 	// 127.0.0.1 - loopback interface address (localhost)
 	// 0.0.0.0 -- listen to all the interfaces
-	logger.Info("Listening to port 1234")
-	listener, err := net.Listen("tcp", "0.0.0.0:1234") // why? because we can use in socket and on ip ( when socket - unix )
-	if err != nil {
-		panic(err)
+
+	var listener net.Listener
+	var listenerError error
+
+	if cfg.Listen.Type == "sock" {
+		// /path/to/binary(exec)
+		// Dir() -- /path/to
+		logger.Info("Starting the server on socket...")
+		file, err := filepath.Abs(filepath.Dir(os.Args[0]))
+		if err != nil {
+			logger.Fatal("Error while getting the path to the executable file: ", err)
+		}
+		path.Join(file, "app.sock")
+		logger.Info("Create unix socket...")
+		listener, listenerError = net.Listen("unix", path.Join(file, "app.sock"))
+		if listenerError != nil {
+			logger.Fatal("Error while creating the unix socket: ", listenerError)
+		}
+		logger.Info("Server listening on socket...")
+	} else {
+		logger.Info("Starting the server on TCP...")
+		logger.Info("Create TCP socket...")
+		listener, listenerError = net.Listen("tcp", cfg.GetListenAddress())
+		if listenerError != nil {
+			logger.Fatal("Error while creating the TCP socket: ", listenerError)
+		}
+		logger.Info("Server is listening on ", cfg.GetListenAddress())
 	}
 
 	// specify the server settings
@@ -29,6 +56,7 @@ func start(router *httprouter.Router, logger *logging.Logger) {
 	}
 
 	logger.Info("Starting the server...")
+
 	logger.Panic(server.Serve(listener))
 }
 
@@ -38,8 +66,10 @@ func main() {
 	logger := logging.GetLogger()
 	logger.Info("Starting the application...")
 	router := httprouter.New()
+	logger.Info("Read configuration...")
+	cfg := config.GetConfig()
 	logger.Info("Registering the handlers...")
 	user.NewHandler(logger).Register(router)
 	logger.Info("Starting the server...")
-	start(router, logger)
+	start(router, logger, cfg)
 }

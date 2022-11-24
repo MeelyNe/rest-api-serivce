@@ -39,26 +39,26 @@ func (h *handler) GetUsers(w http.ResponseWriter, r *http.Request, _ httprouter.
 }
 
 func (h *handler) GetUser(w http.ResponseWriter, request *http.Request, ps httprouter.Params) {
-	w.Write([]byte("Hello " + ps.ByName("id")))
 	w.WriteHeader(200)
+	w.Write([]byte("Hello " + ps.ByName("id")))
 }
 
 func (h *handler) CreateUser(w http.ResponseWriter, request *http.Request, ps httprouter.Params) {
-	w.Write([]byte("Hello " + ps.ByName("id")))
 	w.WriteHeader(204)
+	w.Write([]byte("Hello " + ps.ByName("id")))
 }
 
 func (h *handler) DeleteUser(w http.ResponseWriter, request *http.Request, ps httprouter.Params) {
-	w.Write([]byte("Hello " + ps.ByName("id")))
 	w.WriteHeader(204)
+	w.Write([]byte("Hello " + ps.ByName("id")))
 }
 
 func (h *handler) PatchUser(w http.ResponseWriter, request *http.Request, ps httprouter.Params) {
-	w.Write([]byte("Hello " + ps.ByName("id")))
 	w.WriteHeader(200)
+	w.Write([]byte("Hello " + ps.ByName("id")))
 }
 
 func (h *handler) UpdateUser(w http.ResponseWriter, request *http.Request, ps httprouter.Params) {
-	w.Write([]byte("Hello " + ps.ByName("id")))
 	w.WriteHeader(200)
+	w.Write([]byte("Hello " + ps.ByName("id")))
 }

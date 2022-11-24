@@ -29,7 +29,7 @@ func (hook *writerHook) Fire(entry *logrus.Entry) error {
 		return err
 	}
 	for _, writer := range hook.Writer {
-		_, err := fmt.Fprintln(writer, line)
+		_, err := fmt.Fprint(writer, line)
 		if err != nil {
 			return err
 		}
@@ -68,8 +68,8 @@ func Init() {
 		panic(err)
 	}
 
-	if _, err := os.Stat("logs/app.log"); err != nil {
-		_, err := os.Create("logs/app.log")
+	if _, err := os.Stat("logs/all.log"); err != nil {
+		_, err := os.Create("logs/all.log")
 		if err != nil {
 			panic(err)
 		}
