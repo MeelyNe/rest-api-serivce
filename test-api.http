@@ -1,0 +1,24 @@
+POST http://localhost:1234/api/users/
+Content-Type: application/json
+
+{}
+> {% client.test("")
+ %}
+###
+PUT http://localhost:1234/api/users/1
+Content-Type: application/json
+
+{}
+
+###
+DELETE http://localhost:1234/api/users/1
+Content-Type: application/json
+
+{}
+
+###
+DELETE http://localhost:1234/api/users/1
+Content-Type: application/json
+
+{}
+
