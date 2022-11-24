@@ -1,0 +1,44 @@
+time="2022-11-24T13:55:25+06:00" level=info msg="Starting the application..." func="main.main()" file="app.go:38"
+
+time="2022-11-24T13:55:25+06:00" level=info msg="Registering the handlers..." func="main.main()" file="app.go:40"
+
+time="2022-11-24T13:55:25+06:00" level=info msg="Starting the server..." func="main.main()" file="app.go:42"
+
+time="2022-11-24T13:56:49+06:00" level=info msg="Starting the application..." func="main.main()" file="app.go:39"
+
+time="2022-11-24T13:56:49+06:00" level=info msg="Registering the handlers..." func="main.main()" file="app.go:41"
+
+time="2022-11-24T13:56:49+06:00" level=info msg="Starting the server..." func="main.main()" file="app.go:43"
+
+time="2022-11-24T13:56:49+06:00" level=info msg="Listening to port 1234" func="main.start()" file="app.go:15"
+
+time="2022-11-24T13:56:49+06:00" level=info msg="Setting the server settings..." func="main.start()" file="app.go:24"
+
+time="2022-11-24T13:56:49+06:00" level=info msg="Starting the server..." func="main.start()" file="app.go:31"
+
+time="2022-11-24T14:01:37+06:00" level=info msg="Starting the application..." func="main.main()" file="app.go:39"
+
+time="2022-11-24T14:01:37+06:00" level=info msg="Registering the handlers..." func="main.main()" file="app.go:41"
+
+time="2022-11-24T14:01:37+06:00" level=info msg="Starting the server..." func="main.main()" file="app.go:43"
+
+time="2022-11-24T14:01:37+06:00" level=info msg="Listening to port 1234" func="main.start()" file="app.go:15"
+
+time="2022-11-24T14:01:37+06:00" level=info msg="Setting the server settings..." func="main.start()" file="app.go:24"
+
+time="2022-11-24T14:01:37+06:00" level=info msg="Starting the server..." func="main.start()" file="app.go:31"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Starting the application..." func="main.main()" file="app.go:39"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Registering the handlers..." func="main.main()" file="app.go:41"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Registering user handlers" func="rest-api-service/internal/user.(*handler).Register()" file="handler.go:28"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Starting the server..." func="main.main()" file="app.go:43"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Listening to port 1234" func="main.start()" file="app.go:15"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Setting the server settings..." func="main.start()" file="app.go:24"
+
+time="2022-11-24T14:04:18+06:00" level=info msg="Starting the server..." func="main.start()" file="app.go:31"
+
